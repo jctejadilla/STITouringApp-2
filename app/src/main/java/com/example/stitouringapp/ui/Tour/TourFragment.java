@@ -1,20 +1,29 @@
 package com.example.stitouringapp.ui.Tour;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
+
+import com.example.stitouringapp.MainActivity2;
 import com.example.stitouringapp.R;
 import com.example.stitouringapp.databinding.FragmentTourBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class TourFragment extends Fragment {
 
+    FirebaseAuth mAuth;
     private FragmentTourBinding binding;
     private int currentBuildingIndex = 0;
 
@@ -55,6 +64,8 @@ public class TourFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
 
         updateBuildingInfo();
 

@@ -150,7 +150,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/logoutBtn"
+                    android:id="@+id/linear"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -158,7 +158,10 @@
                     android:gravity="center"
                     android:background="@drawable/rounded_dark_card"
                     android:layout_marginStart="8dp"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="20dp"

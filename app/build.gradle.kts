@@ -5,6 +5,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     // We need the JAVA version of Safe Args because TourFragment.java is a Java file.
     id("androidx.navigation.safeargs")
+    id("com.google.gms.google-services")
 }
 
 
@@ -55,8 +56,11 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("com.jsibbold:zoomage:1.3.1")
+    implementation(platform("com.google.firebase:firebase-bom:34.5.0"))
+    implementation("com.google.firebase:firebase-analytics")
 }

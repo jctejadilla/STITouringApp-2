@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "371961819174",
+    "project_id": "sti-tour",
+    "storage_bucket": "sti-tour.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371961819174:android:4929fbf8e1ba861d0f76e7",
+        "android_client_info": {
+          "package_name": "com.example.stitouringapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVr8Nk30YR94P9MXtP4Rb9hLcWqS5mZfg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
