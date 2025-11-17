@@ -1,0 +1,57 @@
+
+{
+  "COMLAB1": {
+    "Monday": "9:00 AM - 5:00 PM: Open Lab",
+    "Tuesday": "10:00 AM - 4:00 PM: BSIT-101 Lab Session",
+    "Wednesday": "9:00 AM - 5:00 PM: Open Lab",
+    "Thursday": "10:00 AM - 4:00 PM: BSCS-201 Lab Session",
+    "Friday": "9:00 AM - 3:00 PM: Maintenance",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM202": {
+    "Monday": "8:00 AM - 10:00 AM: English 101",
+    "Tuesday": "1:00 PM - 3:00 PM: Math 101",
+    "Wednesday": "8:00 AM - 10:00 AM: English 101",
+    "Thursday": "1:00 PM - 3:00 PM: Math 101",
+    "Friday": "10:00 AM - 12:00 PM: History 101",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "Library": {
+    "Monday": "8:00 AM - 7:00 PM: Open",
+    "Tuesday": "8:00 AM - 7:00 PM: Open",
+    "Wednesday": "8:00 AM - 7:00 PM: Open",
+    "Thursday": "8:00 AM - 7:00 PM: Open",
+    "Friday": "8:00 AM - 5:00 PM: Open",
+    "Saturday": "9:00 AM - 1:00 PM: Open",
+    "Sunday": "Closed"
+  },
+  "ROOM201": {
+    "Monday": "10:00 AM - 12:00 PM: Science 101",
+    "Tuesday": "2:00 PM - 4:00 PM: Art Class",
+    "Wednesday": "10:00 AM - 12:00 PM: Science 101",
+    "Thursday": "2:00 PM - 4:00 PM: Art Class",
+    "Friday": "1:00 PM - 3:00 PM: Music Class",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM204": {
+    "Monday": "10:00 AM - 12:00 PM: Science 101",
+    "Tuesday": "2:00 PM - 4:00 PM: Art Class",
+    "Wednesday": "10:00 AM - 12:00 PM: Science 101",
+    "Thursday": "2:00 PM - 4:00 PM: Art Class",
+    "Friday": "1:00 PM - 3:00 PM: Music Class",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM203": {
+    "Monday": "10:00 AM - 12:00 PM: Science 101",
+    "Tuesday": "2:00 PM - 4:00 PM: Art Class",
+    "Wednesday": "10:00 AM - 12:00 PM: Science 101",
+    "Thursday": "2:00 PM - 4:00 PM: Art Class",
+    "Friday": "1:00 PM - 3:00 PM: Music Class",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  }
+}
