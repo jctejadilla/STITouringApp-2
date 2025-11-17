@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OTP"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <!-- STI Bar Logo -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/stibar"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY" />
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="40dp"
+        android:paddingTop="20dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verification code sent!"
+            android:textColor="@color/white"
+            android:fontFamily="@font/baloopaaji"
+            android:textSize="30sp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp" />
+
+        <!-- Sticker -->
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/otp_sticker"
+            android:adjustViewBounds="true"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Instruction -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please enter the verification code."
+            android:textColor="@color/white"
+            android:fontFamily="@font/baloopaajitwo"
+            android:textSize="19sp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- OTP Menu Box -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginBottom="20dp">
+
+            <!-- OTP Background -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/otp_menu"
+                android:scaleType="fitXY" />
+
+            <!-- OTP Label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OTP Verification"
+                android:textColor="@color/white"
+                android:fontFamily="@font/baloopaajitwo"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="40dp"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:src="@drawable/createaccount_textbox"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginBottom="30dp"
+                    android:layout_margin="30dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/otp_key"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginBottom="30dp"
+                    android:layout_margin="28dp"
+                    />
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <!-- Resend and Verify Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Didn’t receive the code? "
+                android:textColor="@color/white"
+                android:fontFamily="@font/baloopaajitwo"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/btnResend"
+                android:clickable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Resend it."
+                android:textColor="@color/blue"
+                android:fontFamily="@font/baloopaajitwo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnVerify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verify"
+            android:textColor="@color/white"
+            android:fontFamily="@font/baloopaaji"
+            android:textSize="22sp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/loginbutton"
+            android:paddingHorizontal="60dp"
+            android:paddingVertical="10dp"
+            android:gravity="center" />
+    </LinearLayout>
+
+</LinearLayout>

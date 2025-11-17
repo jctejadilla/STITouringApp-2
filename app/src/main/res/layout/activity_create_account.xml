@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateAccount"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/stibar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Be more. Be STI."
+                android:textColor="@color/white"
+                android:textSize="26dp"
+                android:fontFamily="@font/baloopaajitwo"
+                android:paddingLeft="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome"
+                android:textColor="@color/white"
+                android:fontFamily="@font/baloopaaji"
+                android:textSize="33sp"
+                android:paddingLeft="5dp"
+                android:translationY="-25dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STIers!"
+                android:textColor="@color/white"
+                android:fontFamily="@font/baloopaaji"
+                android:textSize="38sp"
+                android:paddingLeft="5dp"
+                android:translationY="-55dp"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="170dp"
+                android:src="@drawable/createaccount_menu"
+                android:scaleType="fitXY" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="300dp"
+                android:paddingLeft="30dp">
+
+                <!-- Username Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Username"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/baloopaajitwo"
+                    android:textSize="20sp"
+                    android:paddingLeft="20dp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/createaccount_textbox"
+                        android:layout_marginEnd="40dp"
+                        android:hint="Enter your username"
+                        android:fontFamily="@font/baloopaaji"
+                        android:textColor="@color/white"
+                        android:textColorHint="#AAAAAA"
+                        android:paddingLeft="40dp"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_createaccount_profile"
+                        android:layout_marginLeft="10dp" />
+                </FrameLayout>
+
+                <!-- Student Account Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student's account"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/baloopaajitwo"
+                    android:textSize="20sp"
+                    android:paddingLeft="20dp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etStudentAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/createaccount_textbox"
+                        android:layout_marginEnd="40dp"
+                        android:hint="Enter your student email"
+                        android:fontFamily="@font/baloopaaji"
+                        android:textColor="@color/white"
+                        android:textColorHint="#AAAAAA"
+                        android:paddingLeft="40dp"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_createaccount_email"
+                        android:layout_marginLeft="10dp" />
+                </FrameLayout>
+
+                <!-- Password Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/baloopaajitwo"
+                    android:textSize="20sp"
+                    android:paddingLeft="20dp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/createaccount_textbox"
+                        android:layout_marginEnd="40dp"
+                        android:hint="Enter your password"
+                        android:fontFamily="@font/baloopaaji"
+                        android:textColor="@color/white"
+                        android:textColorHint="#AAAAAA"
+                        android:inputType="textPassword"
+                        android:paddingLeft="40dp"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_createaccount_password"
+                        android:layout_marginLeft="10dp" />
+                </FrameLayout>
+
+                <!-- Submit Button -->
+                <TextView
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/baloopaaji"
+                    android:textSize="25sp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:paddingHorizontal="40dp"
+                    android:background="@drawable/loginbutton" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/createaccount" />
+        </FrameLayout>
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#14151B"
+    tools:context=".ui.interactivemap.InteractiveMapFragment">
+
+    <com.jsibbold.zoomage.ZoomageView
+        android:id="@+id/interactive_map_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        app:zoomage_restrictBounds="true"
+        app:zoomage_animateOnReset="true"
+        app:zoomage_autoCenter="true"
+        app:zoomage_zoomable="true"
+        app:zoomage_translatable="true"
+        app:zoomage_minScale="0.6"
+        app:zoomage_maxScale="8"
+        tools:src="@drawable/lobby_map" />
+
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/white" />
+
+    <!-- Purple Nodes (Existing) -->
+    <ImageView
+        android:id="@+id/node_1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/interactive_node"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/node_2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/interactive_node"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/node_3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/interactive_node"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/node_4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/interactive_node"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Blue Nodes (New) -->
+    <ImageView
+        android:id="@+id/node_5"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/interactive_nodeblue"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/node_6"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/interactive_nodeblue"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/node_7"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/interactive_nodeblue"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/node_8"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/interactive_nodeblue"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/node_9"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/interactive_nodeblue"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/node_10"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/interactive_nodeblue"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/node_11"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/interactive_nodeblue"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

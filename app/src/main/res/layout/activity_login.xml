@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#14151B">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/Login"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/login"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginEnd="55dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginBottom="40dp"
+            android:paddingTop="200dp"
+            >
+
+            <TextView
+                android:id="@+id/LoginNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Login now"
+                android:textColor="@color/blue"
+                android:textSize="30sp"
+                android:fontFamily="@font/baloopaaji"
+                android:layout_marginTop="60dp"
+                />
+
+                <TextView
+                    android:id="@+id/StudentAccountText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#C3C3C3"
+                    android:text="Student's Account"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/baloopaajitwo"
+                    android:paddingLeft="15dp"
+                    android:layout_marginTop="8dp"
+                    />
+
+                <EditText
+                    android:id="@+id/StudentAccountInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/logintextbox"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:id="@+id/PasswordText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#C3C3C3"
+                    android:text="Password"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/baloopaajitwo"
+                    android:paddingLeft="15dp"
+                    android:layout_marginTop="8dp"/>
+
+            <EditText
+                android:id="@+id/PasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/logintextbox"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                />
+
+            <TextView
+                android:id="@+id/ForgetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Forgot the password?"
+                android:textSize="14sp"
+                android:fontFamily="@font/baloopaajitwo"
+                android:textColor="#C3C3C3"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                />
+
+            <TextView
+                android:id="@+id/LoginButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:fontFamily="@font/baloopaaji"
+                android:text="Login"
+                android:layout_gravity="center"
+                android:background="@drawable/loginbutton"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:shadowColor="@color/black"
+                android:shadowRadius="10"
+                android:layout_marginTop="16dp"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/CreateAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Create account"
+                    android:fontFamily="@font/baloopaajitwo"
+                    android:textColor="#0E81DB"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:translationY="-9dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:translationY="-15dp"
+                    android:background="#0E81DB"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="34dp">
+
+            <TextView
+                android:id="@+id/GuestAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Visit as Guest account"
+                android:clickable="true"
+                android:focusable="true"
+                android:textSize="16sp"
+                android:layout_gravity="center|bottom"
+                android:fontFamily="@font/baloopaaji"
+                android:textColor="@color/orange" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:translationY="-6dp"
+                android:background="@color/orange"/>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
