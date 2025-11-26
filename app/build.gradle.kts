@@ -57,10 +57,12 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.firebase.auth)
+    implementation(libs.webkit)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("com.jsibbold:zoomage:1.3.1")
     implementation(platform("com.google.firebase:firebase-bom:34.5.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("androidx.webkit:webkit:1.11.0")
 }

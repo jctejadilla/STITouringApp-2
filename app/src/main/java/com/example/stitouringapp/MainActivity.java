@@ -29,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            startActivity(new Intent(MainActivity.this, MainActivity2.class));
+            finish();
+        }
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 

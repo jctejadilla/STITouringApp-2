@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -14,10 +15,17 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.webkit.WebViewAssetLoader;
 
 import com.example.stitouringapp.R;
 import com.example.stitouringapp.databinding.FragmentInteractiveMapBinding;
-import com.example.stitouringapp.ui.interactivemap.InteractiveMapFragmentArgs;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 public class InteractiveMapFragment extends Fragment {
 
@@ -92,13 +100,13 @@ public class InteractiveMapFragment extends Fragment {
     private void setupCanteenAndCourtNodes() {
         // NO BLUE NODES FOR THIS MAP
         setupNode(binding.node1, 0.52f, 0.10f, "Canteen Hallway");
-        setupNode(binding.node2, 0.52f, 0.47f, "Canteen Hallway");
+        setupNode(binding.node2, 0.52f, 0.47f, "Canteen Inside");
         setupNode(binding.node3, 0.52f, 0.85f, "Court");
     }
     private void setupMezzanineNodes() {
         // Purple hallway nodes
         setupNode(binding.node1, 0.52f, 0.3f, "Mezzanine Hallway");
-        setupNode(binding.node2, 0.52f, 0.75f, "Mezzanine Hallway");
+        setupNode(binding.node2, 0.52f, 0.75f, "Mezzanine Middle Hallway");
 
         // Blue room nodes
         setupNode(binding.node5, 0.4f, 0.20f, "Teacher's Room");
@@ -124,9 +132,9 @@ public class InteractiveMapFragment extends Fragment {
 
     private void setupThirdFloorNodes() {
         // Purple hallway nodes
-        setupNode(binding.node1, 0.51f, 0.115f, "3rd Floor Hallway");
-        setupNode(binding.node2, 0.51f, 0.55f, "3rd Floor Hallway");
-        setupNode(binding.node3, 0.51f, 0.90f, "3rd Floor Hallway");
+        setupNode(binding.node1, 0.51f, 0.115f, "3rd Floor Hallway 1");
+        setupNode(binding.node2, 0.51f, 0.55f, "3rd Floor Hallway 2");
+        setupNode(binding.node3, 0.51f, 0.90f, "3rd Floor Hallway 3");
 
         // Blue room nodes
         setupNode(binding.node5, 0.35f, 0.3f, "Room 301");
@@ -138,9 +146,9 @@ public class InteractiveMapFragment extends Fragment {
 
     private void setupFourthFloorNodes() {
         // Purple hallway nodes
-        setupNode(binding.node1, 0.5f, 0.115f, "4th Floor Hallway");
-        setupNode(binding.node2, 0.5f, 0.5f, "4th Floor Hallway");
-        setupNode(binding.node3, 0.5f, 0.9f, "4th Floor Hallway");
+        setupNode(binding.node1, 0.5f, 0.115f, "4th Floor Hallway 1");
+        setupNode(binding.node2, 0.5f, 0.5f, "4th Floor Hallway 2");
+        setupNode(binding.node3, 0.5f, 0.9f, "4th Floor Hallway 3");
 
         // Blue room nodes
         setupNode(binding.node5, 0.35f, 0.3f, "Room 406");
@@ -163,16 +171,99 @@ public class InteractiveMapFragment extends Fragment {
         node.setLayoutParams(params);
 
         node.setOnClickListener(v -> {
-            // Check if the location is a room or a hallway
-            if (locationName.contains("Hallway") || locationName.equals("Lobby") || locationName.equals("Canteen") || locationName.equals("Court")) {
-                Toast.makeText(getContext(), "Clicked on: " + locationName, Toast.LENGTH_SHORT).show();
-            } else {
-                // It's a room, so show the schedule dialog
-                showScheduleDialog(locationName);
+            switch (locationName) {
+                case "Lobby":
+                    showPanoramaDialog("lobby.html");
+                    break;
+                case "Ground Floor Hallway":
+                    showPanoramaDialog("groundfhall.html");
+                    break;
+                case "Canteen":
+                    showPanoramaDialog("canteen.html");
+                    break;
+                case "Canteen Hallway":
+                    showPanoramaDialog("canteen.html");
+                    break;
+                case "Canteen Inside":
+                    showPanoramaDialog("canteenin.html");
+                    break;
+                case "Mezzanine Middle Hallway":
+                    showPanoramaDialog("mezzhall.html");
+                    break;
+                case "Mezzanine Hallway":
+                    showPanoramaDialog("mezz.html");
+                    break;
+                case "3rd Floor Hallway 1":
+                    showPanoramaDialog("3rd1.html");
+                    break;
+                case "3rd Floor Hallway 2":
+                    showPanoramaDialog("3rd2.html");
+                    break;
+                case "3rd Floor Hallway 3":
+                    showPanoramaDialog("3rd3.html");
+                    break;
+                case "4th Floor Hallway 1":
+                    showPanoramaDialog("4th1.html");
+                    break;
+                case "4th Floor Hallway 2":
+                    showPanoramaDialog("4th2.html");
+                    break;
+                case "4th Floor Hallway 3":
+                    showPanoramaDialog("4th3.html");
+                    break;
+                default:
+                    showScheduleDialog(locationName);
+                    break;
             }
         });
 
         node.bringToFront();
+    }
+
+    private void showPanoramaDialog(String htmlFileName) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_webview, null);
+        WebView panoramaWebView = dialogView.findViewById(R.id.webView);
+
+        final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
+                .addPathHandler("/assets/", new WebViewAssetLoader.AssetsPathHandler(requireContext()))
+                .build();
+
+        panoramaWebView.setWebViewClient(new LocalContentWebViewClient(assetLoader));
+
+        panoramaWebView.getSettings().setJavaScriptEnabled(true);
+        panoramaWebView.getSettings().setAllowFileAccess(false);
+        panoramaWebView.getSettings().setAllowContentAccess(false);
+
+        panoramaWebView.loadUrl("https://appassets.androidplatform.net/assets/" + htmlFileName);
+
+        builder.setView(dialogView);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        if (dialog.getWindow() != null) {
+            android.util.DisplayMetrics displayMetrics = new android.util.DisplayMetrics();
+            requireActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            int dialogHeight = displayMetrics.heightPixels / 3;
+            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, dialogHeight);
+        }
+    }
+
+    private static class LocalContentWebViewClient extends androidx.webkit.WebViewClientCompat {
+
+        private final WebViewAssetLoader mAssetLoader;
+
+        LocalContentWebViewClient(WebViewAssetLoader assetLoader) {
+            mAssetLoader = assetLoader;
+        }
+
+        @Override
+        @Nullable
+        public android.webkit.WebResourceResponse shouldInterceptRequest(
+                android.webkit.WebView view,
+                android.webkit.WebResourceRequest request) {
+            return mAssetLoader.shouldInterceptRequest(request.getUrl());
+        }
     }
 
     private void showScheduleDialog(String roomName) {
@@ -185,52 +276,44 @@ public class InteractiveMapFragment extends Fragment {
     }
 
     private String getScheduleForRoom(String roomName) {
-        // This is placeholder data. You can replace this with your actual schedule data source.
-        switch (roomName) {
-            case "Admission":
-                return "Monday:\t\t9:00 AM - 11:00 AM\n" +
-                        "Wednesday:\t\t1:00 PM - 3:00 PM\n" +
-                        "Friday:\t\t10:00 AM - 12:00 PM";
-            case "Clinic":
-                return "Monday-Friday:\t\t8:00 AM - 5:00 PM";
-            case "Registrar":
-                return "Monday-Friday:\t\t8:30 AM - 4:30 PM";
-            case "COMLAB1":
-            case "COMLAB2":
-            case "COMLAB3":
-            case "COMLAB4":
-                return "Tuesday:\t\t8:00 AM - 10:00 AM\n" +
-                        "Thursday:\t\t2:00 PM - 4:00 PM";
-            case "Teacher's Room":
-                return "Monday-Friday:\t\t7:00 AM - 6:00 PM";
-            case "IT Department":
-            case "IT Office":
-                return "Monday-Friday:\t\t8:00 AM - 5:00 PM (By Appointment)";
-            case "BMMA LAB":
-            case "Pastry Laboratory":
-            case "Kitchen Laboratory":
-                return "See department head for schedule.";
-            case "Library (Books)":
-            case "Library (Collection)":
-                return "Monday-Saturday:\t\t7:30 AM - 6:00 PM";
-            case "Room 201":
-            case "Room 202":
-            case "Room 203":
-            case "Room 204":
-            case "Room 205":
-            case "Room 206":
-            case "Room 301":
-            case "Room 302":
-            case "Room 303":
-            case "Room 401":
-            case "Room 402":
-            case "Room 403":
-            case "Room 404":
-            case "Room 405":
-            case "Room 406":
-                return "Check university portal for class schedule.";
-            default:
+        try {
+            InputStream is = requireContext().getAssets().open("schedule.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            int bytesRead = is.read(buffer);
+            is.close();
+
+            String json = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
+            JSONObject schedules = new JSONObject(json);
+
+            String jsonKey = roomName;
+            if (!schedules.has(jsonKey)) {
+                String alternateKey = roomName.replace(" ", "").toUpperCase();
+                if (schedules.has(alternateKey)) {
+                    jsonKey = alternateKey;
+                } else if (roomName.equals("Library (Books)")) {
+                    jsonKey = "Library";
+                }
+            }
+
+            if (schedules.has(jsonKey)) {
+                JSONObject roomSchedule = schedules.getJSONObject(jsonKey);
+                StringBuilder scheduleText = new StringBuilder();
+                String[] daysOrder = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+                for (String day : daysOrder) {
+                    if (roomSchedule.has(day)) {
+                        scheduleText.append(day).append(":\n");
+                        scheduleText.append(roomSchedule.getString(day)).append("\n\n");
+                    }
+                }
+                return scheduleText.toString().trim();
+            } else {
                 return "No schedule available for this room.";
+            }
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return "Error loading schedule data.";
         }
     }
 

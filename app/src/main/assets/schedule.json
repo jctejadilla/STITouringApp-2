@@ -53,5 +53,203 @@
     "Friday": "1:00 PM - 3:00 PM: Music Class",
     "Saturday": "Closed",
     "Sunday": "Closed"
+  },
+  "Admission": {
+    "Monday": "8:00 AM - 5:00 PM: Open for Inquiries",
+    "Tuesday": "8:00 AM - 5:00 PM: Open for Inquiries",
+    "Wednesday": "8:00 AM - 5:00 PM: Open for Inquiries",
+    "Thursday": "8:00 AM - 5:00 PM: Open for Inquiries",
+    "Friday": "8:00 AM - 5:00 PM: Open for Inquiries",
+    "Saturday": "9:00 AM - 12:00 PM: Special Appointments",
+    "Sunday": "Closed"
+  },
+  "Clinic": {
+    "Monday": "7:30 AM - 6:00 PM: Open",
+    "Tuesday": "7:30 AM - 6:00 PM: Open",
+    "Wednesday": "7:30 AM - 6:00 PM: Open",
+    "Thursday": "7:30 AM - 6:00 PM: Open",
+    "Friday": "7:30 AM - 6:00 PM: Open",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "Registrar": {
+    "Monday": "8:00 AM - 5:00 PM: Document Processing",
+    "Tuesday": "8:00 AM - 5:00 PM: Document Processing",
+    "Wednesday": "8:00 AM - 5:00 PM: Document Processing",
+    "Thursday": "8:00 AM - 5:00 PM: Document Processing",
+    "Friday": "8:00 AM - 5:00 PM: Document Processing",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "COMLAB2": {
+    "Monday": "10:00 AM - 4:00 PM: BSIT-202 Lab Session",
+    "Tuesday": "9:00 AM - 5:00 PM: Open Lab",
+    "Wednesday": "10:00 AM - 4:00 PM: BSCS-301 Lab Session",
+    "Thursday": "9:00 AM - 5:00 PM: Open Lab",
+    "Friday": "9:00 AM - 12:00 PM: Open Lab",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "COMLAB3": {
+    "Monday": "9:00 AM - 5:00 PM: Open Lab",
+    "Tuesday": "10:00 AM - 4:00 PM: BSIT-301 Lab Session",
+    "Wednesday": "9:00 AM - 5:00 PM: Open Lab",
+    "Thursday": "10:00 AM - 4:00 PM: BSCS-401 Lab Session",
+    "Friday": "1:00 PM - 4:00 PM: Faculty Training",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "COMLAB4": {
+    "Monday": "10:00 AM - 4:00 PM: BSCS-101 Lab Session",
+    "Tuesday": "9:00 AM - 5:00 PM: Open Lab",
+    "Wednesday": "10:00 AM - 4:00 PM: BSIT-401 Lab Session",
+    "Thursday": "9:00 AM - 5:00 PM: Open Lab",
+    "Friday": "9:00 AM - 12:00 PM: Open Lab",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "Teacher's Room": {
+    "Monday": "7:00 AM - 7:00 PM: Faculty Access",
+    "Tuesday": "7:00 AM - 7:00 PM: Faculty Access",
+    "Wednesday": "7:00 AM - 7:00 PM: Faculty Access",
+    "Thursday": "7:00 AM - 7:00 PM: Faculty Access",
+    "Friday": "7:00 AM - 7:00 PM: Faculty Access",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "IT Department": {
+    "Monday": "8:00 AM - 6:00 PM: Staff Available",
+    "Tuesday": "8:00 AM - 6:00 PM: Staff Available",
+    "Wednesday": "8:00 AM - 6:00 PM: Staff Available",
+    "Thursday": "8:00 AM - 6:00 PM: Staff Available",
+    "Friday": "8:00 AM - 6:00 PM: Staff Available",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "BMMA LAB": {
+    "Monday": "9:00 AM - 12:00 PM: Animation Class",
+    "Tuesday": "1:00 PM - 4:00 PM: Video Editing Workshop",
+    "Wednesday": "9:00 AM - 12:00 PM: Animation Class",
+    "Thursday": "1:00 PM - 4:00 PM: Video Editing Workshop",
+    "Friday": "9:00 AM - 5:00 PM: Open Lab for Projects",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "Pastry Laboratory": {
+    "Monday": "8:00 AM - 12:00 PM: Basic Baking Class",
+    "Tuesday": "1:00 PM - 5:00 PM: Cake Decorating Class",
+    "Wednesday": "8:00 AM - 12:00 PM: Basic Baking Class",
+    "Thursday": "1:00 PM - 5:00 PM: Cake Decorating Class",
+    "Friday": "Free for student practice",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "Kitchen Laboratory": {
+    "Monday": "8:00 AM - 12:00 PM: Culinary Arts 101",
+    "Tuesday": "1:00 PM - 5:00 PM: International Cuisine",
+    "Wednesday": "8:00 AM - 12:00 PM: Culinary Arts 101",
+    "Thursday": "1:00 PM - 5:00 PM: International Cuisine",
+    "Friday": "Free for student practice",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM205": {
+    "Monday": "1:00 PM - 3:00 PM: Philosophy 101",
+    "Tuesday": "10:00 AM - 12:00 PM: Sociology 101",
+    "Wednesday": "1:00 PM - 3:00 PM: Philosophy 101",
+    "Thursday": "10:00 AM - 12:00 PM: Sociology 101",
+    "Friday": "Free",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM206": {
+    "Monday": "3:00 PM - 5:00 PM: Political Science 101",
+    "Tuesday": "8:00 AM - 10:00 AM: Economics 101",
+    "Wednesday": "3:00 PM - 5:00 PM: Political Science 101",
+    "Thursday": "8:00 AM - 10:00 AM: Economics 101",
+    "Friday": "Free",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM301": {
+    "Monday": "9:00 AM - 11:00 AM: Physics 201",
+    "Tuesday": "1:00 PM - 3:00 PM: Chemistry 201",
+    "Wednesday": "9:00 AM - 11:00 AM: Physics 201",
+    "Thursday": "1:00 PM - 3:00 PM: Chemistry 201",
+    "Friday": "11:00 AM - 1:00 PM: Biology 201",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM302": {
+    "Monday": "11:00 AM - 1:00 PM: Calculus II",
+    "Tuesday": "9:00 AM - 11:00 AM: Statistics",
+    "Wednesday": "11:00 AM - 1:00 PM: Calculus II",
+    "Thursday": "9:00 AM - 11:00 AM: Statistics",
+    "Friday": "Free",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM303": {
+    "Monday": "1:00 PM - 3:00 PM: Advanced Algebra",
+    "Tuesday": "11:00 AM - 1:00 PM: Geometry",
+    "Wednesday": "1:00 PM - 3:00 PM: Advanced Algebra",
+    "Thursday": "11:00 AM - 1:00 PM: Geometry",
+    "Friday": "Free",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM401": {
+    "Monday": "8:00 AM - 10:00 AM: Literature 301",
+    "Tuesday": "10:00 AM - 12:00 PM: Creative Writing",
+    "Wednesday": "8:00 AM - 10:00 AM: Literature 301",
+    "Thursday": "10:00 AM - 12:00 PM: Creative Writing",
+    "Friday": "1:00 PM - 3:00 PM: Poetry Workshop",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM402": {
+    "Monday": "10:00 AM - 12:00 PM: World History",
+    "Tuesday": "1:00 PM - 3:00 PM: Psychology 301",
+    "Wednesday": "10:00 AM - 12:00 PM: World History",
+    "Thursday": "1:00 PM - 3:00 PM: Psychology 301",
+    "Friday": "Free",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM403": {
+    "Monday": "1:00 PM - 3:00 PM: Anthropology 301",
+    "Tuesday": "3:00 PM - 5:00 PM: Ethics",
+    "Wednesday": "1:00 PM - 3:00 PM: Anthropology 301",
+    "Thursday": "3:00 PM - 5:00 PM: Ethics",
+    "Friday": "Free",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM404": {
+    "Monday": "3:00 PM - 5:00 PM: Public Speaking",
+    "Tuesday": "8:00 AM - 10:00 AM: Debate Club",
+    "Wednesday": "3:00 PM - 5:00 PM: Public Speaking",
+    "Thursday": "8:00 AM - 10:00 AM: Debate Club",
+    "Friday": "Free",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM405": {
+    "Monday": "Free",
+    "Tuesday": "10:00 AM - 12:00 PM: Marketing 101",
+    "Wednesday": "Free",
+    "Thursday": "10:00 AM - 12:00 PM: Marketing 101",
+    "Friday": "10:00 AM - 12:00 PM: Entrepreneurship",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "ROOM406": {
+    "Monday": "10:00 AM - 12:00 PM: Accounting 101",
+    "Tuesday": "Free",
+    "Wednesday": "10:00 AM - 12:00 PM: Accounting 101",
+    "Thursday": "Free",
+    "Friday": "1:00 PM - 3:00 PM: Finance 101",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
   }
 }
