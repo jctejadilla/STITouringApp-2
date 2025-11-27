@@ -19,6 +19,9 @@ import androidx.webkit.WebViewAssetLoader;
 
 import com.example.stitouringapp.R;
 import com.example.stitouringapp.databinding.FragmentInteractiveMapBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,11 +33,13 @@ import java.nio.charset.StandardCharsets;
 public class InteractiveMapFragment extends Fragment {
 
     private FragmentInteractiveMapBinding binding;
+    private FirebaseAuth mAuth;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentInteractiveMapBinding.inflate(inflater, container, false);
+        mAuth = FirebaseAuth.getInstance();
         return binding.getRoot();
     }
 
@@ -179,10 +184,11 @@ public class InteractiveMapFragment extends Fragment {
                     showPanoramaDialog("groundfhall.html");
                     break;
                 case "Canteen":
-                    showPanoramaDialog("canteen.html");
-                    break;
                 case "Canteen Hallway":
                     showPanoramaDialog("canteen.html");
+                    break;
+                case "Court":
+                    showPanoramaDialog("court.html");
                     break;
                 case "Canteen Inside":
                     showPanoramaDialog("canteenin.html");
@@ -276,6 +282,12 @@ public class InteractiveMapFragment extends Fragment {
     }
 
     private String getScheduleForRoom(String roomName) {
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null && currentUser.isAnonymous()) {
+            return "Guest users cannot view schedules. Please create an account to see room schedules.";
+        }
+
         try {
             InputStream is = requireContext().getAssets().open("schedule.json");
             int size = is.available();

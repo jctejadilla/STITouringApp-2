@@ -64,5 +64,6 @@ dependencies {
     implementation("com.jsibbold:zoomage:1.3.1")
     implementation(platform("com.google.firebase:firebase-bom:34.5.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-firestore") // Added Firestore
     implementation("androidx.webkit:webkit:1.11.0")
 }

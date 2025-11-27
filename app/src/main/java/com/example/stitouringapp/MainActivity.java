@@ -9,9 +9,6 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     EditText studentAccountInput, passwordInput;
-    TextView loginButton, createAccount, forgetPassword;
+    TextView loginButton, createAccount, forgetPassword, guestAccount;
     FirebaseAuth mAuth;
 
     @Override
@@ -33,19 +30,14 @@ public class MainActivity extends AppCompatActivity {
         if (user != null) {
             startActivity(new Intent(MainActivity.this, MainActivity2.class));
             finish();
+            return;
         }
 
+        // This single line handles all the edge-to-edge setup.
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 
-        // Adjust system window insets
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
-
+        // The manual listener that was causing the conflict has been removed.
 
         // Initialize Views
         studentAccountInput = findViewById(R.id.StudentAccountInput);
@@ -53,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.LoginButton);
         createAccount = findViewById(R.id.CreateAccount);
         forgetPassword = findViewById(R.id.ForgetPassword);
+        guestAccount = findViewById(R.id.GuestAccount);
         mAuth = FirebaseAuth.getInstance();
 
         // LOGIN BUTTON ACTION
@@ -78,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, ForgotPassword.class);
             startActivity(intent);
         });
+
+        // GUEST ACCOUNT ACTION
+        guestAccount.setOnClickListener(v -> {
+            signInAnonymously();
+        });
     }
 
     private void loginUser(String email, String password) {
@@ -94,5 +92,24 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void signInAnonymously() {
+        mAuth.signInAnonymously()
+            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        // Navigate to the main activity
+                        startActivity(new Intent(MainActivity.this, MainActivity2.class));
+                        finish();
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Toast.makeText(MainActivity.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
     }
 }

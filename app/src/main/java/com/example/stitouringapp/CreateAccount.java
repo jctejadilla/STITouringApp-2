@@ -11,16 +11,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.Firebase;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CreateAccount extends AppCompatActivity {
     EditText etUsername, etStudentAccount, etPassword;
     TextView btnSubmit;
 
     FirebaseAuth mAuth;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class CreateAccount extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
 
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         btnSubmit.setOnClickListener(v -> {
             String username = etUsername.getText().toString().trim();
@@ -42,9 +47,7 @@ public class CreateAccount extends AppCompatActivity {
             if (username.isEmpty() || studentAcc.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields!", Toast.LENGTH_SHORT).show();
             } else {
-
                 registerUser(username, studentAcc, password);
-
             }
         });
     }
@@ -55,15 +58,23 @@ public class CreateAccount extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(CreateAccount.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                            // User registration successful, now store user data in Firestore
+                            String userId = mAuth.getCurrentUser().getUid();
+                            Map<String, Object> user = new HashMap<>();
+                            user.put("username", username);
+                            user.put("email", studentAcc);
 
-                            // Optional: send email verification
-                            //mAuth.getCurrentUser().sendEmailVerification();
-
-                            Intent intent = new Intent(CreateAccount.this, MainActivity2.class);
-                            intent.putExtra("username", username);
-                            startActivity(intent);
-                            finish();
+                            db.collection("users").document(userId)
+                                    .set(user)
+                                    .addOnSuccessListener(aVoid -> {
+                                        Toast.makeText(CreateAccount.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(CreateAccount.this, MainActivity2.class);
+                                        startActivity(intent);
+                                        finish();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Toast.makeText(CreateAccount.this, "Error saving user data: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                    });
                         } else {
                             if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                                 Toast.makeText(CreateAccount.this, "Email already exists", Toast.LENGTH_LONG).show();

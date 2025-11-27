@@ -1,6 +1,5 @@
 package com.example.stitouringapp;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +7,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class ForgotPassword extends AppCompatActivity {
 
-    private EditText email, password, confirmPassword;
+    private EditText email;
     private Button submitButton;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,30 +22,32 @@ public class ForgotPassword extends AppCompatActivity {
 
         // Initialize components
         email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
-        confirmPassword = findViewById(R.id.confirmPassword);
         submitButton = findViewById(R.id.submitButton);
+        mAuth = FirebaseAuth.getInstance();
 
         // Handle Submit button click
         submitButton.setOnClickListener(v -> {
             String emailInput = email.getText().toString().trim();
-            String passwordInput = password.getText().toString().trim();
-            String confirmInput = confirmPassword.getText().toString().trim();
 
-            // Simple validation
-            if (emailInput.isEmpty() || passwordInput.isEmpty() || confirmInput.isEmpty()) {
-                Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
-            } else if (!passwordInput.equals(confirmInput)) {
-                Toast.makeText(this, "Passwords do not match.", Toast.LENGTH_SHORT).show();
-            } else {
-                // Simulate successful password reset
-                Toast.makeText(this, "Password reset successful!", Toast.LENGTH_SHORT).show();
-
-                // Go to OTP or MainActivity2 (you can choose which)
-                Intent intent = new Intent(ForgotPassword.this, OTP.class);
-                startActivity(intent);
-                finish();
+            if (emailInput.isEmpty()) {
+                Toast.makeText(this, "Please enter your registered email address.", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            // Send a password reset email to the user
+            mAuth.sendPasswordResetEmail(emailInput)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(ForgotPassword.this, "Password reset email sent. Please check your inbox.", Toast.LENGTH_LONG).show();
+                        // Go back to the main login activity
+                        Intent intent = new Intent(ForgotPassword.this, MainActivity2.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        // If the email does not exist in Firebase, an error will be thrown.
+                        Toast.makeText(ForgotPassword.this, "Failed to send reset email. Please ensure the email is correct and registered.", Toast.LENGTH_LONG).show();
+                    }
+                });
         });
     }
 }

@@ -7,16 +7,6 @@
     android:layout_height="match_parent"
     android:background="#0D0D0D">
 
-    <!-- Top Bar -->
-    <ImageView
-        android:id="@+id/top_bar"
-        android:layout_width="0dp"
-        android:layout_height="72dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/stibar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Blue background area between top bar and card -->
     <ImageView
@@ -25,7 +15,7 @@
         android:layout_height="180dp"
         android:scaleType="centerCrop"
         android:src="@drawable/profilebackground"
-        app:layout_constraintTop_toBottomOf="@id/top_bar"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -48,7 +38,7 @@
         <!-- use ConstraintLayout inside card and constrain everything -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="495dp"
+            android:layout_height="700dp"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
             android:paddingTop="70dp"
@@ -59,12 +49,11 @@
                 android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Juan Carlos"
-                android:textSize="20sp"
+                android:text=""
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5" />
@@ -88,7 +77,7 @@
             <LinearLayout
                 android:id="@+id/emailCard"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="56dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="10dp"
@@ -96,11 +85,12 @@
                 app:layout_constraintTop_toBottomOf="@id/userSchool"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="12dp"
+                android:paddingStart="20dp">
 
                 <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:src="@drawable/mail"
                     android:layout_marginEnd="8dp" />
 
@@ -108,45 +98,48 @@
                     android:id="@+id/userEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="carlos.456789@dasmarinas.sti.edu.ph"
+                    android:text=""
                     android:textColor="#FF8A65"
-                    android:textSize="13sp" />
+                    android:textSize="17sp" />
             </LinearLayout>
 
             <!-- Buttons row -->
             <LinearLayout
                 android:id="@+id/actionButtons"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="56dp"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/emailCard"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="14dp">
+                android:layout_marginTop="15dp">
 
                 <LinearLayout
                     android:id="@+id/editProfileBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:background="@drawable/rounded_dark_card"
                     android:layout_marginEnd="8dp"
-                    android:padding="10dp">
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dark_card"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/setting"
-                        android:layout_marginEnd="8dp" />
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/setting" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Edit Profile"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"/>
+                        android:textSize="17sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -164,8 +157,8 @@
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         android:src="@drawable/logout"
                         android:layout_marginEnd="8dp" />
 
@@ -174,7 +167,7 @@
                         android:layout_height="wrap_content"
                         android:text="Log out"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"/>
+                        android:textSize="17sp"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -198,7 +191,6 @@
                     android:gravity="center_vertical"
                     android:paddingStart="20dp"
                     android:paddingEnd="14dp"
-                    android:layout_marginBottom="10dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
@@ -216,7 +208,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="#FFFFFF"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -227,7 +219,8 @@
                     android:background="@drawable/rounded_dark_card"
                     android:gravity="center_vertical"
                     android:paddingStart="20dp"
-                    android:paddingEnd="14dp">
+                    android:paddingEnd="14dp"
+                    android:layout_marginTop="20dp">
 
                     <ImageView
                         android:layout_width="22dp"
@@ -240,7 +233,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="#FFFFFF"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -248,18 +241,25 @@
     </androidx.cardview.widget.CardView>
 
     <!-- Avatar (outside card so it can overlap) -->
-    <ImageView
-        android:id="@+id/avatar"
+    <androidx.cardview.widget.CardView
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/otp_sticker"
-        android:scaleType="centerCrop"
-        android:background="@drawable/circle_background"
-        android:padding="8dp"
         android:elevation="10dp"
+        app:cardCornerRadius="60dp"
         app:layout_constraintBottom_toTopOf="@id/profile_panel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:translationY="60dp"/>
+        android:translationY="60dp"
+        android:translationZ="4dp"
+        >
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/otp_sticker"
+            android:scaleType="centerCrop" />
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
