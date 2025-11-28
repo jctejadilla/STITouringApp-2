@@ -69,6 +69,26 @@ public class InteractiveMapFragment extends Fragment {
                 binding.interactiveMapImage.setImageResource(R.drawable.fourthfloor);
                 setupFourthFloorNodes();
                 break;
+            case "annex_ground_floor_map":
+                binding.interactiveMapImage.setImageResource(R.drawable.annex_groundfloor);
+                setupAnnexGroundFloorNodes();
+                break;
+            case "annex_second_floor_map":
+                binding.interactiveMapImage.setImageResource(R.drawable.annex_secondfloor);
+                setupAnnexSecondFloorNodes();
+                break;
+            case "annex_first_floor_map":
+                binding.interactiveMapImage.setImageResource(R.drawable.annex_firstfloor);
+                setupAnnexFirstFloorNodes();
+                break;
+            case "annex_third_floor_map":
+                binding.interactiveMapImage.setImageResource(R.drawable.annex_thirdfloor);
+                setupAnnexThirdFloorNodes();
+                break;
+            case "annex_auditorium_map":
+                binding.interactiveMapImage.setImageResource(R.drawable.annex_auditorium);
+                setupAnnexAuditoriumNodes();
+                break;
             default:
                 // Handle default case or show an error
                 break;
@@ -159,6 +179,60 @@ public class InteractiveMapFragment extends Fragment {
         setupNode(binding.node11, 0.65f, 0.67f, "Room 403");
     }
 
+    private void setupAnnexGroundFloorNodes() {
+        // Purple Nodes
+        setupNode(binding.node1, 0.65f, 0.2f, "Annex Ground Stairs");
+        setupNode(binding.node2, 0.5f, 0.5f, "Annex Ground Hallway");
+
+        // Blue Nodes
+        setupNode(binding.node6, 0.4f, 0.95f, "GF101");
+    }
+
+    private void setupAnnexFirstFloorNodes() {
+        // Purple Nodes
+        setupNode(binding.node1, 0.75f, 0.3f, "Annex Second Stairs");
+        setupNode(binding.node2, 0.5f, 0.5f, "Annex Second Hallway");
+        setupNode(binding.node3, 0.25f, 0.8f, "Annex Second Stairs");
+
+        // Blue Nodes
+        setupNode(binding.node5, 0.53f, 0.15f, "Annex Room 103");
+        setupNode(binding.node6, 0.45f, 0.85f, "Annex Room 102");
+        setupNode(binding.node7, 0.67f, 0.85f, "Annex Room 101");
+    }
+
+    private void setupAnnexSecondFloorNodes() {
+        // Purple Nodes
+        setupNode(binding.node1, 0.75f, 0.3f, "Annex Second Stairs");
+        setupNode(binding.node2, 0.5f, 0.5f, "Annex Second Hallway");
+        setupNode(binding.node3, 0.25f, 0.8f, "Annex Second Stairs");
+
+        // Blue Nodes
+        setupNode(binding.node5, 0.53f, 0.15f, "Annex Room 203");
+        setupNode(binding.node6, 0.45f, 0.85f, "Annex Room 202");
+        setupNode(binding.node7, 0.67f, 0.85f, "Annex Room 201");
+    }
+
+    private void setupAnnexThirdFloorNodes() {
+        // Purple Nodes
+        setupNode(binding.node1, 0.75f, 0.3f, "Annex Second Stairs");
+        setupNode(binding.node2, 0.5f, 0.5f, "Annex Second Hallway");
+        setupNode(binding.node3, 0.25f, 0.8f, "Annex Second Stairs");
+
+        // Blue Nodes
+        setupNode(binding.node5, 0.53f, 0.15f, "Annex Room 303");
+        setupNode(binding.node6, 0.45f, 0.85f, "Annex Room 302");
+        setupNode(binding.node7, 0.67f, 0.85f, "Annex Room 301");
+    }
+
+    private void setupAnnexAuditoriumNodes() {
+        // Purple Nodes
+        setupNode(binding.node1, 0.77f, 0.5f, "Auditorium Hallway");
+        setupNode(binding.node2, 0.26f, 0.5f, "Auditorium Hallway");
+
+        // Blue Node (Exception)
+        setupNode(binding.node5, 0.55f, 0.5f, "Auditorium");
+    }
+
     private void setupNode(ImageView node, float biasTop, float biasStart, String locationName) {
         node.setVisibility(View.VISIBLE);
         ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) node.getLayoutParams();
@@ -172,6 +246,7 @@ public class InteractiveMapFragment extends Fragment {
 
         node.setOnClickListener(v -> {
             switch (locationName) {
+                // Building 1 Panoramas
                 case "Lobby":
                     showPanoramaDialog("lobby.html");
                     break;
@@ -179,8 +254,6 @@ public class InteractiveMapFragment extends Fragment {
                     showPanoramaDialog("groundfhall.html");
                     break;
                 case "Canteen":
-                    showPanoramaDialog("canteen.html");
-                    break;
                 case "Canteen Hallway":
                     showPanoramaDialog("canteen.html");
                     break;
@@ -211,7 +284,28 @@ public class InteractiveMapFragment extends Fragment {
                 case "4th Floor Hallway 3":
                     showPanoramaDialog("4th3.html");
                     break;
+
+                // Annex Building Panoramas
+                case "Annex Ground Stairs":
+                case "Annex Second Stairs":
+                case "Annex Third Stairs":
+                    showPanoramaDialog("annex_stairs.html"); // Assuming one html for all annex stairs
+                    break;
+                case "Annex Ground Hallway":
+                    showPanoramaDialog("annex_g_hall.html");
+                    break;
+                case "Annex Second Hallway":
+                    showPanoramaDialog("annex_2_hall.html");
+                    break;
+                case "Annex Third Hallway":
+                    showPanoramaDialog("annex_3_hall.html");
+                    break;
+                case "Auditorium Hallway":
+                    showPanoramaDialog("annex_audi_hall.html");
+                    break;
+
                 default:
+                    // This will handle all numbered rooms and the Auditorium
                     showScheduleDialog(locationName);
                     break;
             }
