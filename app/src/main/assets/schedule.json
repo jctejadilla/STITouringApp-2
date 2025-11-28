@@ -251,5 +251,104 @@
     "Friday": "1:00 PM - 3:00 PM: Finance 101",
     "Saturday": "Closed",
     "Sunday": "Closed"
+  },
+  "GF101": {
+    "Monday": "8:00 AM - 10:00 AM: Introduction to IT",
+    "Tuesday": "1:00 PM - 3:00 PM: Computer Fundamentals",
+    "Wednesday": "8:00 AM - 10:00 AM: Introduction to IT",
+    "Thursday": "1:00 PM - 3:00 PM: Computer Fundamentals",
+    "Friday": "Open for student consultation",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "Annex Room 101": {
+    "Monday": "9:00 AM - 11:00 AM: Basic Electronics",
+    "Tuesday": "1:00 PM - 3:00 PM: Digital Logic",
+    "Wednesday": "9:00 AM - 11:00 AM: Basic Electronics",
+    "Thursday": "1:00 PM - 3:00 PM: Digital Logic",
+    "Friday": "Open for lab work",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "Annex Room 102": {
+    "Monday": "11:00 AM - 1:00 PM: Computer Architecture",
+    "Tuesday": "9:00 AM - 11:00 AM: Microprocessors",
+    "Wednesday": "11:00 AM - 1:00 PM: Computer Architecture",
+    "Thursday": "9:00 AM - 11:00 AM: Microprocessors",
+    "Friday": "Open for lab work",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "Annex Room 103": {
+    "Monday": "Free",
+    "Tuesday": "Free",
+    "Wednesday": "9:00 AM - 12:00 PM: Robotics Club",
+    "Thursday": "Free",
+    "Friday": "1:00 PM - 4:00 PM: AI Study Group",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "Annex Room 201": {
+    "Monday": "1:00 PM - 3:00 PM: Networking 1",
+    "Tuesday": "3:00 PM - 5:00 PM: Network Security",
+    "Wednesday": "1:00 PM - 3:00 PM: Networking 1",
+    "Thursday": "3:00 PM - 5:00 PM: Network Security",
+    "Friday": "Open for lab work",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "Annex Room 202": {
+    "Monday": "3:00 PM - 5:00 PM: Wireless Communication",
+    "Tuesday": "1:00 PM - 3:00 PM: Cisco Networking",
+    "Wednesday": "3:00 PM - 5:00 PM: Wireless Communication",
+    "Thursday": "1:00 PM - 3:00 PM: Cisco Networking",
+    "Friday": "Open for lab work",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+    "Annex Room 203": {
+    "Monday": "1:00 PM - 3:00 PM: Advanced Programming",
+    "Tuesday": "Free",
+    "Wednesday": "1:00 PM - 3:00 PM: Advanced Programming",
+    "Thursday": "2:00 PM - 5:00 PM: Game Development Club",
+    "Friday": "Open for lab work",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "Annex Room 301": {
+    "Monday": "9:00 AM - 11:00 AM: Operating Systems",
+    "Tuesday": "11:00 AM - 1:00 PM: Database Management",
+    "Wednesday": "9:00 AM - 11:00 AM: Operating Systems",
+    "Thursday": "11:00 AM - 11:00 AM: Database Management",
+    "Friday": "Open for project work",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "Annex Room 302": {
+    "Monday": "11:00 AM - 1:00 PM: Software Engineering",
+    "Tuesday": "9:00 AM - 11:00 AM: Systems Analysis & Design",
+    "Wednesday": "11:00 AM - 1:00 PM: Software Engineering",
+    "Thursday": "9:00 AM - 11:00 AM: Systems Analysis & Design",
+    "Friday": "Open for project work",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+   "Annex Room 303": {
+    "Monday": "Free",
+    "Tuesday": "1:00 PM - 4:00 PM: Mobile App Development",
+    "Wednesday": "Free",
+    "Thursday": "1:00 PM - 4:00 PM: Mobile App Development",
+    "Friday": "Open for project work",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
+  },
+  "Auditorium": {
+    "Monday": "Reserved for University Events",
+    "Tuesday": "10:00 AM - 12:00 PM: General Assembly",
+    "Wednesday": "Reserved for University Events",
+    "Thursday": "2:00 PM - 4:00 PM: Guest Lecture Series",
+    "Friday": "Evening: Film Screening Club",
+    "Saturday": "Closed",
+    "Sunday": "Closed"
   }
 }

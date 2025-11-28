@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -19,9 +20,6 @@ import androidx.webkit.WebViewAssetLoader;
 
 import com.example.stitouringapp.R;
 import com.example.stitouringapp.databinding.FragmentInteractiveMapBinding;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,13 +31,11 @@ import java.nio.charset.StandardCharsets;
 public class InteractiveMapFragment extends Fragment {
 
     private FragmentInteractiveMapBinding binding;
-    private FirebaseAuth mAuth;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentInteractiveMapBinding.inflate(inflater, container, false);
-        mAuth = FirebaseAuth.getInstance();
         return binding.getRoot();
     }
 
@@ -78,13 +74,13 @@ public class InteractiveMapFragment extends Fragment {
                 binding.interactiveMapImage.setImageResource(R.drawable.annex_groundfloor);
                 setupAnnexGroundFloorNodes();
                 break;
-            case "annex_second_floor_map":
-                binding.interactiveMapImage.setImageResource(R.drawable.annex_secondfloor);
-                setupAnnexSecondFloorNodes();
-                break;
             case "annex_first_floor_map":
                 binding.interactiveMapImage.setImageResource(R.drawable.annex_firstfloor);
                 setupAnnexFirstFloorNodes();
+                break;
+            case "annex_second_floor_map":
+                binding.interactiveMapImage.setImageResource(R.drawable.annex_secondfloor);
+                setupAnnexSecondFloorNodes();
                 break;
             case "annex_third_floor_map":
                 binding.interactiveMapImage.setImageResource(R.drawable.annex_thirdfloor);
@@ -194,12 +190,13 @@ public class InteractiveMapFragment extends Fragment {
 
     private void setupAnnexFirstFloorNodes() {
         // Purple Nodes
-        setupNode(binding.node1, 0.75f, 0.3f, "Annex First Stairs 1");
+        setupNode(binding.node1, 0.75f, 0.3f, "Annex Second Stairs 1");
+        setupNode(binding.node3, 0.25f, 0.8f, "Annex Second Stairs 2");
 
         // Blue Nodes
-        setupNode(binding.node5, 0.53f, 0.15f, "Annex Room 103");
-        setupNode(binding.node6, 0.45f, 0.85f, "Annex Room 102");
-        setupNode(binding.node7, 0.67f, 0.85f, "Annex Room 101");
+        setupNode(binding.node5, 0.53f, 0.15f, "Annex Room 203");
+        setupNode(binding.node6, 0.45f, 0.85f, "Annex Room 202");
+        setupNode(binding.node7, 0.67f, 0.85f, "Annex Room 201");
     }
 
     private void setupAnnexSecondFloorNodes() {
@@ -235,6 +232,14 @@ public class InteractiveMapFragment extends Fragment {
 
     private void setupNode(ImageView node, float biasTop, float biasStart, String locationName) {
         node.setVisibility(View.VISIBLE);
+
+        // Set the color of the node based on its name
+        if (locationName.contains("Room") || locationName.contains("COMLAB") || locationName.contains("GF101") || locationName.equals("Auditorium") || locationName.equals("Admission") || locationName.equals("Clinic") || locationName.equals("Registrar") || locationName.equals("Teacher's Room") || locationName.equals("IT Department") || locationName.equals("BMMA LAB") || locationName.equals("Library (Books)") || locationName.equals("Pastry Laboratory") || locationName.equals("Kitchen Laboratory")) {
+            node.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.node_blue));
+        } else {
+            node.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.node_purple));
+        }
+
         ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) node.getLayoutParams();
         params.topToTop = R.id.interactive_map_image;
         params.startToStart = R.id.interactive_map_image;
@@ -287,23 +292,22 @@ public class InteractiveMapFragment extends Fragment {
                 case "4th Floor Hallway 3":
                     showPanoramaDialog("4th3.html");
                     break;
+
+                // Annex Building Panoramas
                 case "Annex Ground Hallway":
                     showPanoramaDialog("alobby.html");
-                    break;
-                    case "Annex First Stairs 1":
-                    showPanoramaDialog("a2nd.html");
-                    break;
-                case "Annex Third Stairs 1":
-                    showPanoramaDialog("a4th1.html");
-                    break;
-                case "Annex Third Stairs 2":
-                    showPanoramaDialog("a4th2.html");
                     break;
                 case "Annex Second Stairs 1":
                     showPanoramaDialog("a3rd1.html");
                     break;
                 case "Annex Second Stairs 2":
                     showPanoramaDialog("a3rd2.html");
+                    break;
+                case "Annex Third Stairs 1":
+                    showPanoramaDialog("a4th1.html");
+                    break;
+                case "Annex Third Stairs 2":
+                    showPanoramaDialog("a4th2.html");
                     break;
                 case "Auditorium Hallway":
                     showPanoramaDialog("auditorium.html");
@@ -374,12 +378,6 @@ public class InteractiveMapFragment extends Fragment {
     }
 
     private String getScheduleForRoom(String roomName) {
-
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null && currentUser.isAnonymous()) {
-            return "Guest users cannot view schedules. Please create an account to see room schedules.";
-        }
-
         try {
             InputStream is = requireContext().getAssets().open("schedule.json");
             int size = is.available();
